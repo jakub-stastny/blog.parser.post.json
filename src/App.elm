@@ -74,8 +74,9 @@ view model =
       [ text "The current URL is: "
       , b [] [ text (Url.toString model.url) ]
       , ul []
-          [ viewLink "/home"
-          , viewLink "/profile"
+          [ viewLink "/"
+          , viewLink "/about"
+          , viewLink "/contact"
           ]
       ]
   }
