@@ -1,3 +1,6 @@
+* Imports
+
+#+begin_src elm :tangle yes
 module App exposing (..)
 
 import Debug
@@ -12,7 +15,11 @@ import Element exposing (el, layout, row, rgb255, text, padding, spacing)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
+#+end_src
 
+* Main
+
+#+begin_src elm :tangle yes
 main : Program () Model Msg
 main =
   Browser.application
@@ -23,7 +30,11 @@ main =
     , onUrlChange = UrlChanged
     , onUrlRequest = LinkClicked
     }
+#+end_src
 
+* Model
+
+#+begin_src elm :tangle yes
 type alias Model =
   { key : Nav.Key
   , url : Url.Url
@@ -33,7 +44,11 @@ type alias Model =
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
   ( Model key url, Cmd.none )
+#+end_src
 
+* Update
+
+#+begin_src elm :tangle yes
 type Msg
   = LinkClicked Browser.UrlRequest
   | UrlChanged Url.Url
@@ -54,31 +69,39 @@ update msg model =
       ( { model | url = url }
       , Cmd.none
       )
+#+end_src
 
+* Subscriptions
+
+#+begin_src elm :tangle yes
 subscriptions : Model -> Sub Msg
 subscriptions _ =
   Sub.none
+#+end_src
 
-view : Model -> {title: String, body: List (Html Msg)}
-view model =
-  { title = "My blog",
-    body = [
-      layout []
-        (row [ spacing 30 ] [
-          el [
-            Background.color (rgb255 240 0 245)
-          ]
-          (text ("Current URL: " ++ Url.toString model.url)),
-          Element.html <|
-          ul []
-            [ viewLink "/"
-            , viewLink "/about"
-            , viewLink "/contact"
+* View
+#+begin_src elm :tangle yes
+  view : Model -> {title: String, body: List (Html Msg)}
+  view model =
+    { title = "My blog",
+      body = [
+        layout []
+          (row [ spacing 30 ] [
+            el [
+              Background.color (rgb255 240 0 245)
             ]
-        ])
-      ]
-  }
+            (text ("Current URL: " ++ Url.toString model.url)),
+            Element.html <|
+            ul []
+              [ viewLink "/"
+              , viewLink "/about"
+              , viewLink "/contact"
+              ]
+          ])
+        ]
+    }
 
-viewLink : String -> Html msg
-viewLink path =
-  li [] [ a [ href path ] [ Html.text path ] ]
+  viewLink : String -> Html msg
+  viewLink path =
+    li [] [ a [ href path ] [ Html.text path ] ]
+#+end_src
