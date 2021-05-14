@@ -19,7 +19,15 @@ function compileElm(path: string) {
 const watcher = Deno.watchFs(paths)
 console.log(`~ Watching ${paths}`)
 for await (const { kind, paths } of watcher) {
-  if (kind === "modify") {
+  /*
+   * I'm not sure whether we shouldn't rather use modify.
+   * However when I save the file in Emacs, I get 2 modify
+   * events and only one access event, so by using access
+   * we save ourselves the hassle of running the code twice.
+   *
+   * The problem doesn't occur when I use the touch command.
+   */
+  if (kind === "access") {
     console.log(`~ Path ${paths[0]} has changed.`)
     await compile(paths[0])
   }
