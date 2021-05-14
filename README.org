@@ -1,6 +1,6 @@
 * About
 
-My blog written in Elm and Elm UI.
+My blog written in Elm and Elm UI. My blog posts are available [[https://github.com/jakub-stastny/data.blog][here]].
 
 * Tasks
 ** TODO Tangle on save in Emacs
