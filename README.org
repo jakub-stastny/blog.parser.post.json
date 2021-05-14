@@ -2,7 +2,7 @@
 
 My blog written in Elm and Elm UI.
 
-* TODO
+* Tasks
 ** TODO Tangle on save in Emacs
 
 Just like the =init.org= file.
