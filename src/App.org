@@ -1,3 +1,12 @@
+#+TITLE: My blog main module
+#+AUTHOR: Jakub Šťastný
+#+BABEL: :cache yes
+#+PROPERTY: header-args :tangle yes
+
+* About
+
+My Emacs configuration. It's trying to be as minimalist as possible, leaving environment-specific concerns to =dir-locals.el=.
+
 * Imports
 
 #+begin_src elm :tangle yes
@@ -15,6 +24,11 @@ import Element exposing (el, layout, row, rgb255, text, padding, spacing)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
+#+end_src
+
+* Constants
+#+begin_src elm :tangle yes
+constants = {title = "My blog"}
 #+end_src
 
 * Main

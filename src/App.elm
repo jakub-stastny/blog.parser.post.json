@@ -13,6 +13,8 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 
+constants = {title = "My blog"}
+
 main : Program () Model Msg
 main =
   Browser.application
