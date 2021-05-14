@@ -2,3 +2,9 @@
 
 My blog written in Elm and Elm UI.
 
+* TODO
+** TODO Tangle on save in Emacs
+
+Just like the =init.org= file.
+
+For now just use the =watch= function (=bin/watcher.ts=).
