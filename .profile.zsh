@@ -17,3 +17,5 @@ e() { (test "$#" -eq 0) && emacsclient -s $EMACS_SERVER src/App.org || emacsclie
 watch() {
   deno run --allow-read --allow-run bin/watch.ts
 }
+
+echo "\n  $(tput setaf 2)Functions: $(tput setaf 7)watch$(tput sgr0)."
