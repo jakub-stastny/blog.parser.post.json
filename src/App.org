@@ -3,10 +3,6 @@
 #+BABEL: :cache yes
 #+PROPERTY: header-args :tangle yes
 
-* About
-
-My Emacs configuration. It's trying to be as minimalist as possible, leaving environment-specific concerns to =dir-locals.el=.
-
 * Imports
 
 #+begin_src elm :tangle yes
@@ -29,6 +25,7 @@ import Element.Font as Font
 * Constants
 #+begin_src elm :tangle yes
 constants = {title = "My blog"}
+
 #+end_src
 
 * Main
@@ -84,27 +81,27 @@ subscriptions _ = Sub.none
 
 * View
 #+begin_src elm :tangle yes
-  view : Model -> {title: String, body: List (Html Msg)}
-  view model =
-    { title = "My blog",
-      body = [
-        layout [] (
-          row [ spacing 30 ] [
-            el [
-              Background.color (rgb255 240 0 245)
-            ]
-            (text ("Current URL: " ++ Url.toString model.url)),
-            Element.html <| ul [] [
-              viewLink "/",
-              viewLink "/about",
-              viewLink "/contact"
-            ]
+view : Model -> {title: String, body: List (Html Msg)}
+view model =
+  { title = "My blog",
+    body = [
+      layout [] (
+        row [ spacing 30 ] [
+          el [
+            Background.color (rgb255 240 0 245)
           ]
-        )
-      ]
-    }
+          (text ("Current URL: " ++ Url.toString model.url)),
+          Element.html <| ul [] [
+            viewLink "/",
+            viewLink "/about",
+            viewLink "/contact"
+          ]
+        ]
+      )
+    ]
+  }
 
-  viewLink : String -> Html msg
-  viewLink path =
-    li [] [ a [ href path ] [ Html.text path ] ]
+viewLink : String -> Html msg
+viewLink path =
+  li [] [ a [ href path ] [ Html.text path ] ]
 #+end_src
