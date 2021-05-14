@@ -18,7 +18,9 @@ function compileElm(path: string) {
 
 const watcher = Deno.watchFs(paths)
 console.log(`~ Watching ${paths}`)
-for await (const event of watcher) {
-  console.log(`~ Path ${event.paths[0]} has changed.`)
-  compile(event.paths[0])
+for await (const { kind, paths } of watcher) {
+  if (kind === "modify") {
+    console.log(`~ Path ${paths[0]} has changed.`)
+    await compile(paths[0])
+  }
 }
