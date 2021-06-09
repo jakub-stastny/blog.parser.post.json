@@ -5,7 +5,7 @@
 
 * Imports
 
-#+begin_src elm :tangle yes
+#+BEGIN_SRC elm :tangle yes
 module App exposing (main)
 
 import Debug
@@ -20,17 +20,18 @@ import Element exposing (el, layout, row, rgb255, text, padding, spacing)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
-#+end_src
+#+END_SRC
 
 * Constants
-#+begin_src elm :tangle yes
-constants = {title = "My blog"}
-
-#+end_src
+#+BEGIN_SRC elm :tangle yes
+constants = {
+  title = "My blog"
+}
+#+END_SRC
 
 * Main
 
-#+begin_src elm :tangle yes
+#+BEGIN_SRC elm :tangle yes
 main : Program () Model Msg
 main =
   Browser.application
@@ -41,20 +42,20 @@ main =
       onUrlChange = UrlChanged,
       onUrlRequest = LinkClicked
     }
-#+end_src
+#+END_SRC
 
 * Model
 
-#+begin_src elm :tangle yes
+#+BEGIN_SRC elm :tangle yes
 type alias Model = { key : Nav.Key, url : Url.Url }
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key = ( Model key url, Cmd.none )
-#+end_src
+#+END_SRC
 
 * Update
 
-#+begin_src elm :tangle yes
+#+BEGIN_SRC elm :tangle yes
 type Msg = LinkClicked Browser.UrlRequest | UrlChanged Url.Url
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -70,18 +71,18 @@ update msg model =
 
     UrlChanged url ->
       ( { model | url = url }, Cmd.none )
-#+end_src
+#+END_SRC
 
 * Subscriptions
 
-#+begin_src elm :tangle yes
+#+BEGIN_SRC elm :tangle yes
 subscriptions : Model -> Sub Msg
 subscriptions _ = Sub.none
-#+end_src
+#+END_SRC
 
 * View
 
-#+begin_src elm :tangle yes
+#+BEGIN_SRC elm :tangle yes
 view : Model -> {title: String, body: List (Html Msg)}
 view model =
   { title = constants.title,
@@ -105,4 +106,4 @@ view model =
 viewLink : String -> Html msg
 viewLink path =
   li [] [ a [ href path ] [ Html.text path ] ]
-#+end_src
+#+END_SRC
