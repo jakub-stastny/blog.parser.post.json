@@ -117,7 +117,9 @@ view model =
 
 ** Helpers
 
-We might want to test some of these.
+*** TODO Add tests
+
+For at least some of the helpers.
 
 #+BEGIN_SRC elm :tangle yes
 viewLink : String -> Html msg
