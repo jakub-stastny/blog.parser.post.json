@@ -29,13 +29,15 @@ import Element exposing (el, layout, row, rgb255, text, padding, spacing)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
+
+import Post
 #+END_SRC
 
 * Constants
+
 #+BEGIN_SRC elm :tangle yes
-constants = {
-  title = "My blog"
-}
+constants = { title = "My blog"
+  }
 #+END_SRC
 
 * The =main= function

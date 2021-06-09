@@ -1,0 +1,17 @@
+#+TITLE: My blog Post module
+#+AUTHOR: Jakub Šťastný
+#+BABEL: :cache yes
+#+PROPERTY: header-args :tangle yes
+
+* Expose API
+
+#+BEGIN_SRC elm :tangle yes
+module Post exposing (Post)
+#+END_SRC
+
+* About
+
+#+BEGIN_SRC elm :tangle yes
+type alias Post = { title: String
+  }
+#+END_SRC
