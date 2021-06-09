@@ -1,10 +1,16 @@
 // Use the watch function from .profile.zsh to run this.
 
-const paths = ["src/App.org"]
+// FIXME: This currently fails.
+// Check out https://deno.land/std@0.98.0/fs
+/* import { expandGlob } from "https://deno.land/std@0.98.0/fs/mod.ts" */
+
+/* const paths = expandGlob('src/*.org') */
+const entryPoint = "src/App.elm"
+const paths = ["src/App.org", "src/Post.org"]
 
 async function compile(path: string) {
   await compileOrgToElm(path)
-  await compileElm(path.replace(/\.org$/, '.elm'))
+  await compileTheApp()
 }
 
 function compileOrgToElm(path: string) {
@@ -12,12 +18,12 @@ function compileOrgToElm(path: string) {
   return Deno.run({cmd: ["emacs", "--script", command, path]}).status()
 }
 
-function compileElm(path: string) {
-  return Deno.run({cmd: ["elm", "make", path]}).status()
+function compileTheApp() {
+  return Deno.run({cmd: ["elm", "make", entryPoint]}).status()
 }
 
 const watcher = Deno.watchFs(paths)
-console.log(`~ Watching ${paths}`)
+console.log(`~ Watching ${paths.join(', ')}`)
 for await (const { kind, paths } of watcher) {
   /*
    * I'm not sure whether we shouldn't rather use modify.
