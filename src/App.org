@@ -3,7 +3,16 @@
 #+BABEL: :cache yes
 #+PROPERTY: header-args :tangle yes
 
+* Useful resources
+
+- [[https://package.elm-lang.org/packages/elm/core/latest/][Elm core libraries documentation]]
+- [[https://elmprogramming.com/regular-expression.html][RegEx package]] (seems to be rather weird).
+- Elm has =List= (linked list) and also [[https://elmprogramming.com/array.html][Array]]. Array should be used only when we care about accessing it by index.
+- [[https://elmprogramming.com/easy-to-test.html][Unit testing]]. With Org mode I can have code and tests in the same file. Brilliant!
+
 * Imports
+
+- You can find packages (both official and community) at [[https://package.elm-lang.org][package.elm-lang.org]].
 
 #+BEGIN_SRC elm :tangle yes
 module App exposing (main)
@@ -29,7 +38,9 @@ constants = {
 }
 #+END_SRC
 
-* Main
+* The =main= function
+
+- [[https://package.elm-lang.org/packages/elm/browser/latest/Browser#application][Browser.application]] runs Elm in single-page app mode, meaning we control navigation using push state. [[https://guide.elm-lang.org/webapps/navigation.html][Elm guide on navigation]].
 
 #+BEGIN_SRC elm :tangle yes
 main : Program () Model Msg
@@ -44,7 +55,7 @@ main =
     }
 #+END_SRC
 
-* Model
+* Model and the =init= function
 
 #+BEGIN_SRC elm :tangle yes
 type alias Model = { key : Nav.Key, url : Url.Url }
@@ -53,7 +64,7 @@ init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key = ( Model key url, Cmd.none )
 #+END_SRC
 
-* Update
+* =Msg= and the =update= function
 
 #+BEGIN_SRC elm :tangle yes
 type Msg = LinkClicked Browser.UrlRequest | UrlChanged Url.Url
@@ -102,7 +113,13 @@ view model =
       )
     ]
   }
+#+END_SRC
 
+** Helpers
+
+We might want to test some of these.
+
+#+BEGIN_SRC elm :tangle yes
 viewLink : String -> Html msg
 viewLink path =
   li [] [ a [ href path ] [ Html.text path ] ]
