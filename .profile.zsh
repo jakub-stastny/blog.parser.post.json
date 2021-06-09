@@ -1,5 +1,6 @@
 load ~/.zsh/environments/helpers.zsh && save-function-list
 load ~/.zsh/environments/basic.zsh
+load ~/.zsh/environments/emacs.zsh
 
 start-emacs-session
 rename-first-tab
@@ -13,5 +14,5 @@ path-add /root/.deno/bin
 watch() {
   deno run --allow-read --allow-run bin/watch.ts
 }
-        
+
 report-custom-functions

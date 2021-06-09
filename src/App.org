@@ -80,10 +80,11 @@ subscriptions _ = Sub.none
 #+end_src
 
 * View
+
 #+begin_src elm :tangle yes
 view : Model -> {title: String, body: List (Html Msg)}
 view model =
-  { title = "My blog",
+  { title = constants.title,
     body = [
       layout [] (
         row [ spacing 30 ] [
