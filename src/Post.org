@@ -3,7 +3,7 @@
 #+BABEL: :cache yes
 #+PROPERTY: header-args :tangle yes
 
-* Expose API
+* Exports
 
 #+BEGIN_SRC elm :tangle yes
 module Post exposing (Post)

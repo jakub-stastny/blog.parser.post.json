@@ -10,13 +10,17 @@
 - Elm has =List= (linked list) and also [[https://elmprogramming.com/array.html][Array]]. Array should be used only when we care about accessing it by index.
 - [[https://elmprogramming.com/easy-to-test.html][Unit testing]]. With Org mode I can have code and tests in the same file. Brilliant!
 
+* Exports
+
+#+BEGIN_SRC elm :tangle yes
+module App exposing (main)
+#+END_SRC
+
 * Imports
 
 - You can find packages (both official and community) at [[https://package.elm-lang.org][package.elm-lang.org]].
 
 #+BEGIN_SRC elm :tangle yes
-module App exposing (main)
-
 import Debug
 
 import Browser
