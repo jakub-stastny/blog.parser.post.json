@@ -31,7 +31,7 @@ jobs:
           gunzip elm.gz && chmod +x elm && sudo mv elm /usr/local/bin/
 
           # Install Org mode
-          ./bin/install.el
+          #./bin/install.el
 
           # Install elm-test
           sudo npm install -g elm-test
