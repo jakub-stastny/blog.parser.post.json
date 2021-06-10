@@ -2,7 +2,7 @@
 
 [[https://github.com/jakub-stastny/blog/actions/workflows/test.yml][https://github.com/jakub-stastny/blog/actions/workflows/test.yml/badge.svg]]
 
-My blog written in Elm and Elm UI. My blog posts are available [[https://github.com/jakub-stastny/data.blog][here]].
+My blog written in Elm and Elm UI. My raw blog posts are available [[https://github.com/jakub-stastny/data.blog][here]].
 
 * Tasks
 ** TODO See why the header tangle property is not being respected
