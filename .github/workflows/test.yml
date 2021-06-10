@@ -35,7 +35,10 @@ jobs:
 
       - name: Tangle Elm files
         run: |
-          for file in src/*.org; do ./bin/compile.el $file; done
+          cd src
+          echo "(dolist (file argv) (message file) (find-file file) (org-babel-tangle))" > compile.el
+          emacs --script ../bin/compile.el *.org
+          cd -
 
       - name: Run Elm-test
         run: elm-test src/*Test.elm
