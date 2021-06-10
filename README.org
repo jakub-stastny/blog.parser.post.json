@@ -16,6 +16,8 @@ Take [[./src/Post.org][src/Post.org]] as an example. It contains the documentati
 
 See [[./.env/README.org][.env/README.org]] for literate DevOps instructions on setting the project.
 
+Note that this setup is more of an extension of dotfiles (and requires specific initialisation code which I have in [[https://github.com/jakub-stastny/dotfiles][my dotfiles]]), it doesn't deal with installing Elm and the dependencies, for which I use [[https://github.com/jakub-stastny/docker-project-manager][docker-project-manager]].
+
 * Pending matters
 ** TODO Elm code compilation on GH CI
 
