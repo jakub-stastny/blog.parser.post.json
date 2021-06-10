@@ -12,6 +12,31 @@ module Post exposing (Post)
 * About
 
 #+BEGIN_SRC elm :tangle yes
-type alias Post = { title: String
-  }
+type alias Post = {
+  title: String}
+#+END_SRC
+
+* Test
+
+Run with =elm-test=.
+
+#+BEGIN_SRC elm :tangle PostTest.elm
+module PostTest exposing (..)
+
+import Expect exposing (Expectation)
+import Fuzz exposing (Fuzzer, int, list, string)
+import Test exposing (..)
+#+END_SRC
+
+* X
+
+#+BEGIN_SRC elm :tangle PostTest.elm
+suite : Test
+suite =
+  describe "Post module"
+    [ describe "ABC"
+      [ test "XYZ" <|
+        \_ -> Expect.equal 1 1
+      ]
+    ]
 #+END_SRC

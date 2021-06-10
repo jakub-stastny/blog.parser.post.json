@@ -8,7 +8,6 @@
 - [[https://package.elm-lang.org/packages/elm/core/latest/][Elm core libraries documentation]]
 - [[https://elmprogramming.com/regular-expression.html][RegEx package]] (seems to be rather weird).
 - Elm has =List= (linked list) and also [[https://elmprogramming.com/array.html][Array]]. Array should be used only when we care about accessing it by index.
-- [[https://elmprogramming.com/easy-to-test.html][Unit testing]]. With Org mode I can have code and tests in the same file. Brilliant!
 
 * Exports
 
