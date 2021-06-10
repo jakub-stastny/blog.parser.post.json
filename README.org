@@ -10,6 +10,8 @@ In case you're wondering where are all the Elm files, you have to tangle code bl
 
 This allows not only better documentation, since Org mode files are structured text, unlike comments, but also it allows us to have code and related tests at the same Org file, so we can keep related things in one place. These get tangled into separate Elm files of course.
 
+Take [[./src/Post.org][src/Post.org]] as an example. It contains the documentation, the code and the tests.
+
 * Setup
 
 See [[./.env/README.org][.env/README.org]] for literate DevOps instructions on setting the project.
