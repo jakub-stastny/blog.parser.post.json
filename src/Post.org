@@ -28,7 +28,7 @@ import Fuzz exposing (Fuzzer, int, list, string)
 import Test exposing (..)
 #+END_SRC
 
-* Dummy test II
+* Dummy test I
 
 #+BEGIN_SRC elm :tangle PostTest.elm
 suite : Test
