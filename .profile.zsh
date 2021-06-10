@@ -15,4 +15,12 @@ watch() {
   deno run --allow-read --allow-run bin/watch.ts
 }
 
+t() {
+  if test $# = 0; then
+    elm-test src/**/*Test.elm
+  else
+    elm-test $@
+  fi
+}
+
 report-custom-functions
