@@ -40,8 +40,8 @@ import Post
 * Constants
 
 #+BEGIN_SRC elm :tangle yes
-constants = { title = "My blog"
-  }
+constants = {
+  title = "My blog"}
 #+END_SRC
 
 * The =main= function
