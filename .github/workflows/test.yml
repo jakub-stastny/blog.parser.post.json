@@ -37,7 +37,7 @@ jobs:
         run: |
           cd src
           echo "(dolist (file argv) (message file) (find-file file) (org-babel-tangle))" > compile.el
-          emacs --script ../bin/compile.el *.org
+          emacs --script compile.el *.org
           cd -
 
       - name: Run Elm-test
