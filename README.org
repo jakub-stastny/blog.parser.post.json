@@ -8,6 +8,11 @@ My blog written in Elm and Elm UI. My raw blog posts are available [[https://git
 
 See [[./.env/README.org][.env/README.org]] for literate DevOps instructions on setting the project.
 
-* Tasks
-** TODO Move contents of bin/compile.el into GH action file
-** TODO See why the header tangle property is not being respected
+* Pending matters
+** TODO Elm code compilation on GH CI
+
+Move contents of =bin/compile.el= into the GH action file.
+
+** TODO Respect header tangle property
+
+See why the header tangle property is not being respected.
