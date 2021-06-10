@@ -6,7 +6,7 @@ My blog written in Elm and Elm UI. My raw blog posts are available [[https://git
 
 ** Literate programming
 
-In case you're wondering where are all the Elm files, you have to tangle Elm blocks from [[https://orgmode.org][Org mode]] files in =src= into actual Elm files using Org mode in Emacs.
+In case you're wondering where are all the Elm files, you have to tangle code blocks from [[https://orgmode.org][Org mode]] files in =src= into actual Elm files using Org mode in Emacs.
 
 This allows not only better documentation, since Org mode files are structured text, unlike comments, but also it allows us to have code and related tests at the same Org file, so we can keep related things in one place. These get tangled into separate Elm files of course.
 
