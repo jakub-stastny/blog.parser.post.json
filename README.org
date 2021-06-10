@@ -5,10 +5,4 @@
 My blog written in Elm and Elm UI. My blog posts are available [[https://github.com/jakub-stastny/data.blog][here]].
 
 * Tasks
-** TODO Tangle on save in Emacs
-
-Just like the =init.org= file.
-
-For now just use the =watch= function (=bin/watcher.ts=).
-
 ** TODO See why the header tangle property is not being respected
