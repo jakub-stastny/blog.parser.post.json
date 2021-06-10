@@ -22,7 +22,7 @@ jobs:
         run: cd $GITHUB_WORKSPACE
       
       - name: Install Node.js and Elm-test
-        run: sudo apt-get install nodejs && npm install -g elm-test
+        run: sudo apt-get install nodejs && sudo npm install -g elm-test
         
       - name: Emacs & Org mode
         run: sudo apt-get install emacs-nox && ./bin/install.el
