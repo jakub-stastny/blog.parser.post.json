@@ -12,7 +12,7 @@ This allows not only better documentation, since Org mode files are structured t
 
 Take [[./src/Post.org][src/Post.org]] as an example. It contains the documentation, the code and the tests.
 
-Having high-level documentation in Org mode allows not only heading, links and various formatting, but also inclusion of images such as graphs. So you don't have to leave the context of whatever you're working on - it's always at hand.
+Having high-level documentation in Org mode allows not only heading, links and various formatting, but also inclusion of images such as graphs. So you don't have to leave the context of whatever you're working on – it's always at hand.
 
 Org mode files do get long, but that's OK, since Org mode is an outliner and allows hiding sections of code you're not working on.
 
