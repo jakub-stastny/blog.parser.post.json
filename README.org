@@ -1,6 +1,7 @@
 * About
 
-[[https://github.com/jakub-stastny/blog/actions/workflows/test.yml/badge.svg]]
+[[https://github.com/jakub-stastny/blog/actions/workflows/test.yml/badge.svg][https://github.com/jakub-stastny/blog/actions/workflows/test.yml]]
+
 
 My blog written in Elm and Elm UI. My blog posts are available [[https://github.com/jakub-stastny/data.blog][here]].
 
