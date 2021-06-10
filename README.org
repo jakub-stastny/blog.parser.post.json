@@ -21,8 +21,3 @@ Org mode files do get long, but that's OK, since Org mode is an outliner and all
 See [[./.env/README.org][.env/README.org]] for literate DevOps instructions on setting the project.
 
 Note that this setup is more of an extension of dotfiles (and requires specific initialisation code which I have in [[https://github.com/jakub-stastny/dotfiles][my dotfiles]]), it doesn't deal with installing Elm and the dependencies, for which I use [[https://github.com/jakub-stastny/docker-project-manager][docker-project-manager]].
-
-* Pending matters
-** TODO Respect header tangle property
-
-See why the header tangle property is not being respected.
