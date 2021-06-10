@@ -21,11 +21,24 @@ jobs:
       - name: Run in $GITHUB_WORKSPACE
         run: cd $GITHUB_WORKSPACE
       
-      - name: Install Node.js and Elm-test
-        run: sudo apt-get install nodejs && sudo npm install -g elm-test
+      - name: Install dependencies
+        run: |
+          # Install Node.js & Emacs
+          sudo apt-get install nodejs emacs-nox
+
+          # Install Elm
+          curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
+          gunzip elm.gz && chmod +x elm && sudo mv elm /usr/local/bin/
+
+          # Install Org mode
+          ./bin/install.el
+
+          # Install elm-test
+          sudo npm install -g elm-test
         
-      - name: Emacs & Org mode
-        run: sudo apt-get install emacs-nox && ./bin/install.el
-      
+      - name: Tangle Elm files
+        run: |
+          for file in src/*.org; do ./bin/compile.el $file; done
+
       - name: Run Elm-test
-        run: elm-test src/**/*Test.elm
+        run: elm-test src/*Test.elm
