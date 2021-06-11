@@ -18,6 +18,7 @@ up() {
   tmux split-window -h
   tmux send-keys -t 1 'clear' C-m
   tmux send-keys -t 1 'elm reactor' C-m
+  tmux send-keys -t 2 'tmux resize-pane -Z' C-m
   tmux send-keys -t 2 'elm-test src/*.elm --watch' C-m
 }
 

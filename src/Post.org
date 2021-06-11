@@ -5,9 +5,9 @@
 ** Code
 
 #+BEGIN_SRC elm
-  module Post exposing (Post, postDecoder)
+  module Post exposing (Post, decodePost)
 
-  import Json.Decode exposing (Decoder, field, string, int)
+  import Json.Decode exposing (Decoder, decodeString, field, list, string, int)
 #+END_SRC
 
 ** Test
@@ -40,12 +40,12 @@ Body is in the Org mode format. Published time is in Unix epoch time.
 ** Example
 
 #+BEGIN_SRC elm :tangle PostTest.elm
-  post = """
+  postData = """
     {
       "title": "Hello world!",
       "excerpt": "Hey there, I decided to start blogging again.",
       "body": "* What is it going to be about?\n\nLorem ipsum ...",
-      "tags": [],
+      "tags": ["admin"],
       published_"utime": 1623423856
     }
   """
@@ -60,19 +60,27 @@ Body is in the Org mode format. Published time is in Unix epoch time.
       (field "title" string)
       (field "excerpt" string)
       (field "body" string)
-      (field "tags" ..........................)
+      (field "tags" (list string))
       (field "published_utime" int)
+
+  decodePost : String -> Result Json.Decode.Error Post
+  decodePost postData = decodeString postDecoder postData
 #+END_SRC
 
-** Dummy test I
+** Test
 
 #+BEGIN_SRC elm :tangle PostTest.elm
   suite : Test
   suite =
     describe "Post decoder"
       [ test "decodes example post" <|
-        -- \_ -> Expect.equal 1 1
-        \_ -> postDecoder post
+        let
+          post = decodePost postData
+          case decodePost postData of
+            Ok post -> 42
+            Err _ ->
+        in
+        \_ -> Expect.equal post.title "test"
       ]
 #+END_SRC
 
