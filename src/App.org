@@ -7,38 +7,34 @@
 - [[https://elmprogramming.com/regular-expression.html][RegEx package]] (seems to be rather weird).
 - Elm has =List= (linked list) and also [[https://elmprogramming.com/array.html][Array]]. Array should be used only when we care about accessing it by index.
 
-* Exports
+* Exports & imports
 
 #+BEGIN_SRC elm
-module App exposing (main)
-#+END_SRC
+  module App exposing (main)
 
-* Imports
+  import Debug
+
+  import Browser
+  import Browser.Navigation as Nav
+  import Html exposing (Html, ul, li, a)
+  import Html.Attributes exposing (href)
+  import Url
+
+  import Element exposing (el, layout, row, rgb255, text, padding, spacing)
+  import Element.Background as Background
+  import Element.Border as Border
+  import Element.Font as Font
+
+  import Post
+#+END_SRC
 
 - You can find packages (both official and community) at [[https://package.elm-lang.org][package.elm-lang.org]].
-
-#+BEGIN_SRC elm
-import Debug
-
-import Browser
-import Browser.Navigation as Nav
-import Html exposing (Html, ul, li, a)
-import Html.Attributes exposing (href)
-import Url
-
-import Element exposing (el, layout, row, rgb255, text, padding, spacing)
-import Element.Background as Background
-import Element.Border as Border
-import Element.Font as Font
-
-import Post
-#+END_SRC
 
 * Constants
 
 #+BEGIN_SRC elm
-constants = {
-  title = "My blog"}
+  constants = {
+    title = "My blog"}
 #+END_SRC
 
 * The =main= function
@@ -46,76 +42,76 @@ constants = {
 - [[https://package.elm-lang.org/packages/elm/browser/latest/Browser#application][Browser.application]] runs Elm in single-page app mode, meaning we control navigation using push state. [[https://guide.elm-lang.org/webapps/navigation.html][Elm guide on navigation]].
 
 #+BEGIN_SRC elm
-main : Program () Model Msg
-main =
-  Browser.application
-    { init = init,
-      view = view,
-      update = update,
-      subscriptions = subscriptions,
-      onUrlChange = UrlChanged,
-      onUrlRequest = LinkClicked
-    }
+  main : Program () Model Msg
+  main =
+    Browser.application
+      { init = init,
+        view = view,
+        update = update,
+        subscriptions = subscriptions,
+        onUrlChange = UrlChanged,
+        onUrlRequest = LinkClicked
+      }
 #+END_SRC
 
 * Model and the =init= function
 
 #+BEGIN_SRC elm
-type alias Model = { key : Nav.Key, url : Url.Url }
+  type alias Model = { key : Nav.Key, url : Url.Url }
 
-init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
-init flags url key = ( Model key url, Cmd.none )
+  init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
+  init flags url key = ( Model key url, Cmd.none )
 #+END_SRC
 
 * =Msg= and the =update= function
 
 #+BEGIN_SRC elm
-type Msg = LinkClicked Browser.UrlRequest | UrlChanged Url.Url
+  type Msg = LinkClicked Browser.UrlRequest | UrlChanged Url.Url
 
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-  case msg of
-    LinkClicked urlRequest ->
-      case urlRequest of
-        Browser.Internal url ->
-          ( model, Nav.pushUrl model.key (Url.toString url) )
+  update : Msg -> Model -> ( Model, Cmd Msg )
+  update msg model =
+    case msg of
+      LinkClicked urlRequest ->
+        case urlRequest of
+          Browser.Internal url ->
+            ( model, Nav.pushUrl model.key (Url.toString url) )
 
-        Browser.External href ->
-          ( model, Nav.load href )
+          Browser.External href ->
+            ( model, Nav.load href )
 
-    UrlChanged url ->
-      ( { model | url = url }, Cmd.none )
+      UrlChanged url ->
+        ( { model | url = url }, Cmd.none )
 #+END_SRC
 
 * Subscriptions
 
 #+BEGIN_SRC elm
-subscriptions : Model -> Sub Msg
-subscriptions _ = Sub.none
+  subscriptions : Model -> Sub Msg
+  subscriptions _ = Sub.none
 #+END_SRC
 
 * View
 
 #+BEGIN_SRC elm
-view : Model -> {title: String, body: List (Html Msg)}
-view model =
-  { title = constants.title,
-    body = [
-      layout [] (
-        row [ spacing 30 ] [
-          el [
-            Background.color (rgb255 240 0 245)
+  view : Model -> {title: String, body: List (Html Msg)}
+  view model =
+    { title = constants.title,
+      body = [
+        layout [] (
+          row [ spacing 30 ] [
+            el [
+              Background.color (rgb255 240 0 245)
+            ]
+            (text ("Current URL: " ++ Url.toString model.url)),
+            Element.html <| ul [] [
+              viewLink "/",
+              viewLink "/about",
+              viewLink "/contact"
+            ]
           ]
-          (text ("Current URL: " ++ Url.toString model.url)),
-          Element.html <| ul [] [
-            viewLink "/",
-            viewLink "/about",
-            viewLink "/contact"
-          ]
-        ]
-      )
-    ]
-  }
+        )
+      ]
+    }
 #+END_SRC
 
 ** Helpers
@@ -125,7 +121,7 @@ view model =
 For at least some of the helpers.
 
 #+BEGIN_SRC elm
-viewLink : String -> Html msg
-viewLink path =
-  li [] [ a [ href path ] [ Html.text path ] ]
+  viewLink : String -> Html msg
+  viewLink path =
+    li [] [ a [ href path ] [ Html.text path ] ]
 #+END_SRC

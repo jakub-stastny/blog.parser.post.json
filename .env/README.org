@@ -20,8 +20,8 @@ It supports other common packages, not only Magit.
 Use =C-x g= to enter the mode.
 
 #+BEGIN_SRC elisp :results silent
-(dolist (package '(elm-mode magit evil-collection))
-  (unless (package-installed-p package)
-    (message "~ Installing %s." package)
-    (package-install package)))
+  (dolist (package '(elm-mode magit evil-collection))
+    (unless (package-installed-p package)
+      (message "~ Installing %s." package)
+      (package-install package)))
 #+END_SRC
