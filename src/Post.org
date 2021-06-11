@@ -1,20 +1,14 @@
 #+TITLE: My blog Post module
 #+AUTHOR: Jakub Šťastný
 
-* Exports
+* Exports & imports
+** Code
 
 #+BEGIN_SRC elm
 module Post exposing (Post)
 #+END_SRC
 
-* About
-
-#+BEGIN_SRC elm
-type alias Post = {
-  title: String}
-#+END_SRC
-
-* Test
+** Test
 
 Run with =elm-test=.
 
@@ -26,7 +20,22 @@ import Fuzz exposing (Fuzzer, int, list, string)
 import Test exposing (..)
 #+END_SRC
 
+* Model
+
+Body is in the Org mode format. Published time is in Unix epoch time.
+
+#+BEGIN_SRC elm
+type alias Post = {
+  title: String,
+  excerpt: String,
+  body: String,
+  tags: List String,
+  published_utime: Int}
+#+END_SRC
+
 * Dummy test I
+
+- [[https://elmprogramming.com/fuzz-testing][fuzz testing]]
 
 #+BEGIN_SRC elm :tangle PostTest.elm
 suite : Test
