@@ -53,6 +53,10 @@ Body is in the Org mode format. Published time is in Unix epoch time.
 
 * Decoder
 
+
+- The [[https://package.elm-lang.org/packages/elm/json/latest][elm/json]] package documentation.
+- [[https://elmprogramming.com/decoding-json-part-1.html][Decoding JSON part I]]
+
 #+BEGIN_SRC elm
   postDecoder : Decoder Post
   postDecoder =
@@ -68,6 +72,9 @@ Body is in the Org mode format. Published time is in Unix epoch time.
 #+END_SRC
 
 ** Test
+
+- The [[https://package.elm-lang.org/packages/elm-explorations/test/latest][elm/test]] package documentation.
+- [[https://elmprogramming.com/easy-to-test.html][Elm Programming book: easy to test]]
 
 #+BEGIN_SRC elm :tangle PostTest.elm
   suite : Test
@@ -88,3 +95,4 @@ Body is in the Org mode format. Published time is in Unix epoch time.
 
 - [[https://elmprogramming.com/fuzz-testing][fuzz testing]]
 - [[https://package.elm-lang.org/packages/avh4/elm-program-test/latest/][elm-program-test]] (Elm alternative to the [[https://testing-library.com][React testing library]]).
+- [[https://elmprogramming.com/type-system.html][Elm programming book: type system]]
