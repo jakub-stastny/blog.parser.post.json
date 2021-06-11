@@ -9,6 +9,9 @@
 
 (load-theme 'adwaita)
 
+; Support for Evil mode movement in 3rd party packages, such as Magit.
+(evil-collection-init)
+
 (defun my/local/tangle-org-mode-files ()
   (my/info "Running my/local/tangle-org-mode-files.")
   (org-babel-tangle))
