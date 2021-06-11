@@ -16,6 +16,8 @@ Having high-level documentation in Org mode allows not only heading, links and v
 
 Org mode files do get long, but that's OK, since Org mode is an outliner and allows hiding sections of code you're not working on.
 
+[[./doc/emacs-org-mode.jpg]]
+
 * Setup
 
 See [[./.env/README.org][.env/README.org]] for literate DevOps instructions on setting the project.
