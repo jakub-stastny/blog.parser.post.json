@@ -33,9 +33,19 @@ type alias Post = {
   published_utime: Int}
 #+END_SRC
 
+#+BEGIN_SRC elm :tangle PostTest.elm
+post = {
+  title = "Hello world!",
+  excerpt = "Hey there, I decided to start blogging again.",
+  body = "* What is it going to be about?\n\nLorem ipsum ...",
+  tags = [],
+  published_utime = 1623423856}
+#+END_SRC
+
 * Dummy test I
 
 - [[https://elmprogramming.com/fuzz-testing][fuzz testing]]
+- [[https://package.elm-lang.org/packages/avh4/elm-program-test/latest/][elm-program-test]] (Elm alternative to the [[https://testing-library.com][React testing library]]).
 
 #+BEGIN_SRC elm :tangle PostTest.elm
 suite : Test
