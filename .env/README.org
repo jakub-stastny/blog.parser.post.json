@@ -11,7 +11,7 @@ That's what =.env/emacs.el= is for and here we install all the packages specific
 
 *** [[https://github.com/emacs-evil/evil-collection][Package evil-collection]]
 
-Magit doesn't allow Vim movement keys (=hjkl=) by default, which is what the =evil-collection= is about.
+Magit buffers don't support Vim movement keys (=hjkl=) by default, which is what the =evil-collection= package is about.
 
 It supports other common packages, not only Magit.
 
