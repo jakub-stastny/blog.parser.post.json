@@ -5,7 +5,9 @@
 ** Code
 
 #+BEGIN_SRC elm
-module Post exposing (Post)
+  module Post exposing (Post, postDecoder)
+
+  import Json.Decode exposing (Decoder, field, string, int)
 #+END_SRC
 
 ** Test
@@ -13,11 +15,13 @@ module Post exposing (Post)
 Run with =elm-test=.
 
 #+BEGIN_SRC elm :tangle PostTest.elm
-module PostTest exposing (..)
+  module PostTest exposing (..)
 
-import Expect exposing (Expectation)
-import Fuzz exposing (Fuzzer, int, list, string)
-import Test exposing (..)
+  import Expect exposing (Expectation)
+  import Fuzz exposing (Fuzzer, int, list, string)
+  import Test exposing (..)
+
+  import Post exposing (..)
 #+END_SRC
 
 * Model
@@ -25,35 +29,54 @@ import Test exposing (..)
 Body is in the Org mode format. Published time is in Unix epoch time.
 
 #+BEGIN_SRC elm
-type alias Post = {
-  title: String,
-  excerpt: String,
-  body: String,
-  tags: List String,
-  published_utime: Int}
+  type alias Post = {
+    title : String,
+    excerpt : String,
+    body : String,
+    tags : List String,
+    published_utime : Int}
 #+END_SRC
+
+** Example
 
 #+BEGIN_SRC elm :tangle PostTest.elm
-post = {
-  title = "Hello world!",
-  excerpt = "Hey there, I decided to start blogging again.",
-  body = "* What is it going to be about?\n\nLorem ipsum ...",
-  tags = [],
-  published_utime = 1623423856}
+  post = """
+    {
+      "title": "Hello world!",
+      "excerpt": "Hey there, I decided to start blogging again.",
+      "body": "* What is it going to be about?\n\nLorem ipsum ...",
+      "tags": [],
+      published_"utime": 1623423856
+    }
+  """
 #+END_SRC
 
-* Dummy test I
+* Decoder
+
+#+BEGIN_SRC elm
+  postDecoder : Decoder Post
+  postDecoder =
+    Json.Decode.map5 Post
+      (field "title" string)
+      (field "excerpt" string)
+      (field "body" string)
+      (field "tags" ..........................)
+      (field "published_utime" int)
+#+END_SRC
+
+** Dummy test I
+
+#+BEGIN_SRC elm :tangle PostTest.elm
+  suite : Test
+  suite =
+    describe "Post decoder"
+      [ test "decodes example post" <|
+        -- \_ -> Expect.equal 1 1
+        \_ -> postDecoder post
+      ]
+#+END_SRC
+
+* Next
 
 - [[https://elmprogramming.com/fuzz-testing][fuzz testing]]
 - [[https://package.elm-lang.org/packages/avh4/elm-program-test/latest/][elm-program-test]] (Elm alternative to the [[https://testing-library.com][React testing library]]).
-
-#+BEGIN_SRC elm :tangle PostTest.elm
-suite : Test
-suite =
-  describe "Post module"
-    [ describe "ABC"
-      [ test "XYZ" <|
-        \_ -> Expect.equal 1 1
-      ]
-    ]
-#+END_SRC
