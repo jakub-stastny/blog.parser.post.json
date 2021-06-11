@@ -26,4 +26,4 @@ Note that this setup is more of an extension of dotfiles (and requires specific 
 
 * Code documentation
 
-This code is thouroughly documented. Just dive into the Org mode files in =src/=!
+This code is thouroughly documented. Just dive into the Org mode files in =src=!
