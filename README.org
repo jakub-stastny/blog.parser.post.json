@@ -19,3 +19,8 @@ Note that this setup is more of an extension of dotfiles (and requires specific 
 * Code documentation
 
 This code is thouroughly documented. Just dive into the Org mode files in =src=!
+
+* Pending matters
+** TODO TypeScript type file
+
+Elm generates JS, so we need type definitions for when this is required in TS projects.
