@@ -8,15 +8,7 @@ My blog engine written in Elm and Elm UI. My raw blog posts are available [[http
 
 In case you're wondering where are all the Elm files, you have to tangle code blocks from [[https://orgmode.org][Org mode]] files in =src= into actual Elm files using Org mode in Emacs.
 
-This allows not only better documentation, since Org mode files are structured text, unlike comments, but also it allows us to have code and related tests at the same Org file, so we can keep related things in one place. These get tangled into separate Elm files of course.
-
-Take [[./src/Post.org][src/Post.org]] as an example. It contains the documentation, the code and the tests.
-
-Having high-level documentation in Org mode allows not only heading, links and various formatting, but also inclusion of images such as graphs. So you don't have to leave the context of whatever you're working on – it's always at hand.
-
-Org mode files do get long, but that's OK, since Org mode is an outliner and allows hiding sections of code you're not working on.
-
-[[./doc/emacs-org-mode.jpg]]
+[[https://github.com/jakub-stastny/blog/blob/master/doc/literate-programming.org][literate programming]]
 
 * Setup
 
