@@ -6,7 +6,7 @@ This is THE data library of the ecosystem. It serialises and deserialises the po
 
 * Resources and community
 
-This repository is only one of many packages that I wrote for my blog. For the overall architecture and documentation please see the [[https://github.com/jakub-stastny/blog][blog meta repo]]. That's also the place to [[https://github.com/jakub-stastny/blog/issues][raise any issues]] if you encounter any and to [[https://github.com/jakub-stastny/blog/discussions][discuss the project and ask questions]].
+This repository is only one of many packages that I wrote for my blog. For the overall architecture and documentation please see the [[https://github.com/jakub-stastny/blog.meta][blog meta repo]]. That's also the place to [[https://github.com/jakub-stastny/blog.meta/issues][raise any issues]] if you encounter any and to [[https://github.com/jakub-stastny/blog.meta/discussions][discuss the project and ask questions]].
 
 * Understanding the code base
 
@@ -18,13 +18,8 @@ In case you're wondering where are all the Elm files, you have to tangle code bl
 
 Don't worry about it though – unless you want to set up the code locally, there is no need. Just read the Org mode files in the =src= directory, it contains well-documented code.
 
-If you're curious why am I doing this, you can check my post on [[https://github.com/jakub-stastny/blog/blob/master/doc/literate-programming.org][literate programming]].
+If you're curious why am I doing this, you can check my post on [[https://github.com/jakub-stastny/blog.meta/blob/master/doc/literate-programming.org][literate programming]].
 
 * Setup
 
-If you want to contribute or just play around with it, check out [[https://github.com/jakub-stastny/blog/blob/master/doc/setup.org][how to set up the repository]].
-
-* Pending matters
-** TODO TypeScript type file
-
-Elm generates JS, so we need type definitions for when this is required in TS projects.
+If you want to contribute or just play around with it, check out [[https://github.com/jakub-stastny/blog.meta/blob/master/doc/setup.org][how to set up the repository]].
