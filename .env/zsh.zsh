@@ -2,6 +2,8 @@ load ~/.zsh/environments/helpers.zsh && save-function-list
 load ~/.zsh/environments/basic.zsh
 load ~/.zsh/environments/emacs.zsh
 
+try-load ~/blog.meta/inherit/env/zsh.zsh
+
 start-emacs-session
 rename-first-tab
 
@@ -31,10 +33,6 @@ compile() {
   emacs --script compile.el *.org
   rm compile.el
   cd -
-}
-
-generate-readme() {
-  ../blog.meta/bin/generate-readme $PWD
 }
 
 report-custom-functions
