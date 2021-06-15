@@ -90,17 +90,6 @@ Body is in the Org mode format. Published time is in Unix epoch time.
       ]
 #+END_SRC
 
-* Main
-
-Elm forces me to do it, so whatever.
-[[https://github.com/sebsheep/elm2node][elm2node]] only allows exporting functions with arity 1.
-
-#+BEGIN_SRC elm :tangle Post.elm
-  main : String
-  main =
-    "Hello world!"
-#+END_SRC
-
 * Next
 
 - [[https://elmprogramming.com/fuzz-testing][fuzz testing]]
