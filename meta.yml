@@ -6,7 +6,7 @@ This is THE data library of the ecosystem. It serialises and deserialises the po
 
 ** Why Elm?
 
-Given that the [[https://github.com/jakub-stastny/blog.engine][blog.engine]] is written in Elm, we cannot really use anything else for the data library either, since none of the methods of the [[https://guide.elm-lang.org/interop][Elm JS interop]] are suited to consuming a JS library.
+Given that the [[https://github.com/jakub-stastny/blog.engine][blog.engine]] is written in Elm, using anything but Elm is difficult. In theory we could possibly use [[https://guide.elm-lang.org/interop/ports.html][ports]], but sending messages back and forth just to decode JSON doesn't make sense, especially for something that needs to happen really fast.
 
 ** Usage
 *** From an Elm app
