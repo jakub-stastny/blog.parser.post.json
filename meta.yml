@@ -1,5 +1,5 @@
 language: Elm
+sort_order: 3
 ---
 
-|
-  This is THE data library of the ecosystem. It serialises and deserialises the post JSON and is being relied upon by the rest of the ecosystem: namely by the [[https://github.com/jakub-stastny/blog.engine][blog.engine]] and the [[https://github.com/jakub-stastny/blog.generator][blog.generator]].
+This is THE data library of the ecosystem. It serialises and deserialises the post JSON and is being relied upon by the rest of the ecosystem: namely by the [[https://github.com/jakub-stastny/blog.engine][blog.engine]] and the [[https://github.com/jakub-stastny/blog.generator][blog.generator]].
