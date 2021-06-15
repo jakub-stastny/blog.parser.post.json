@@ -35,4 +35,9 @@ compile() {
   cd -
 }
 
+build() {
+  test -d build || mkdir build
+  elm2node src/Post.elm --output=build/Post.js
+}
+
 report-custom-functions
