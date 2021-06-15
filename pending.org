@@ -1,0 +1,1 @@
+- Rewrite tests to test the JS interface rather than the Elm one, since we need to have tests for when this is used just as a JS module.
