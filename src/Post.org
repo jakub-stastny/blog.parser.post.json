@@ -4,7 +4,7 @@
 * Exports & imports
 ** Code
 
-#+BEGIN_SRC elm
+#+BEGIN_SRC elm :tangle Post.elm
   module Post exposing (Post, decodePost)
 
   import Json.Decode exposing (Decoder, decodeString, field, list, string, int)
@@ -28,7 +28,7 @@ Run with =elm-test=.
 
 Body is in the Org mode format. Published time is in Unix epoch time.
 
-#+BEGIN_SRC elm
+#+BEGIN_SRC elm :tangle Post.elm
   type alias Post = {
     title : String,
     excerpt : String,
@@ -53,11 +53,10 @@ Body is in the Org mode format. Published time is in Unix epoch time.
 
 * Decoder
 
-
 - The [[https://package.elm-lang.org/packages/elm/json/latest][elm/json]] package documentation.
 - [[https://elmprogramming.com/decoding-json-part-1.html][Decoding JSON part I]]
 
-#+BEGIN_SRC elm
+#+BEGIN_SRC elm :tangle Post.elm
   postDecoder : Decoder Post
   postDecoder =
     Json.Decode.map5 Post
@@ -91,8 +90,35 @@ Body is in the Org mode format. Published time is in Unix epoch time.
       ]
 #+END_SRC
 
+* Main
+
+Elm forces me to do it, so whatever.
+[[https://github.com/sebsheep/elm2node][elm2node]] only allows exporting functions with arity 1.
+
+#+BEGIN_SRC elm :tangle Post.elm
+  main : String
+  main =
+    "Hello world!"
+#+END_SRC
+
 * Next
 
 - [[https://elmprogramming.com/fuzz-testing][fuzz testing]]
 - [[https://package.elm-lang.org/packages/avh4/elm-program-test/latest/][elm-program-test]] (Elm alternative to the [[https://testing-library.com][React testing library]]).
 - [[https://elmprogramming.com/type-system.html][Elm programming book: type system]]
+
+* Gotchas of =elm.json=
+
+Firstly why do =elm make= require having =elm.json= at all? It's just a compiler!
+
+Using JSON for configuration is a bad idea: JSON doesn't support comments.
+
+- [[https://github.com/elm/compiler/blob/master/docs/elm.json/package.md][Elm.json reference for packages]]
+
+** Enforced license
+
+License field is obligatory and it enforced to be one of the common ones. Apparently I'm not allowed to have my own license in the Elm land. Or not to have one, which is relevant here, since this package is of no use to anyone but me.
+
+** Project name validation
+
+Although Elm says that we're to use the project name we use on GitHub (=author/pkg-name=), that doesn't work here, since I have dots in the repository name.
