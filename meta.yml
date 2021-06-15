@@ -3,3 +3,18 @@ sort_order: 3
 ---
 
 This is THE data library of the ecosystem. It serialises and deserialises the post JSON and is being relied upon by the rest of the ecosystem: namely by the [[https://github.com/jakub-stastny/blog.engine][blog.engine]] and the [[https://github.com/jakub-stastny/blog.generator][blog.generator]].
+
+** Why Elm?
+
+Given that the [[https://github.com/jakub-stastny/blog.engine][blog.engine]] is written in Elm, we cannot really use anything else for the data library either, since none of the methods of the [[https://guide.elm-lang.org/interop][Elm JS interop]] are suited to consuming a JS library.
+
+** Usage
+*** From an Elm app
+
+Since [[https://discourse.elm-lang.org/t/about-private-packages/1872][Elm doesn't support private packages]], the best way to go about this is to add the library as a git submodule and extend the compile function to tangle blocks from [[https://github.com/jakub-stastny/blog.parser.post.json/blob/master/src/Post.org][src/Post.org]] into =src/Post.elm= of the host repository.
+
+*** From JavaScript
+
+Elm itself doesn't allow exporting JavaScript functions. The closest we get is a [[https://package.elm-lang.org/packages/elm/core/latest/Platform#worker][headless program]] (based on messaging, just like =Browser.application=), which is an overkill for a few functions.
+
+Fortunatelly there is [[https://github.com/sebsheep/elm2node][elm2node]]. It is a fork of Elm 0.19.1 compiler, but generates normal JS code as the output. It has limitations however, for instance the exported functions has to have arity 1.
