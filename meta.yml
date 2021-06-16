@@ -18,3 +18,7 @@ Since [[https://discourse.elm-lang.org/t/about-private-packages/1872][Elm doesn'
 Elm itself doesn't allow exporting JavaScript functions. The closest we get is a [[https://package.elm-lang.org/packages/elm/core/latest/Platform#worker][headless program]] (based on messaging, just like =Browser.application=), which is an overkill for a few functions.
 
 Fortunatelly there is [[https://github.com/sebsheep/elm2node][elm2node]]. It is a fork of Elm 0.19.1 compiler, but generates normal JS code as the output. It has limitations however, for instance the exported functions has to have arity 1.
+
+**** ROADBLOCK
+
+Elm2node is useless. It can't export =Json.Decode.Decoder=, =type alias= and pretty much nothing else. So essentially we cannot export JS and even if we do, we cannot import it back to Elm.
